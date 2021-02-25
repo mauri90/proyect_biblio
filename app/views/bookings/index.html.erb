@@ -1,0 +1,43 @@
+<br />
+<h1> Libros reservados </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libro</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Fecha Inicio reserva</th>
+      <th>Fecha Fin reserva</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |b| %>
+      <tr>
+        <td><%= b.book.name %></td>
+        <td><%= b.user.name %></td>
+        <td><%= b.user.last_name %></td>
+        <td><%= b.start_date.strftime("%d-%b-%Y") if b.start_date %></td>
+        <td><%= b.end_date.strftime("%d-%b-%Y") if b.end_date %></td>
+        <% if current_user && current_user.role == "Admin" %>
+        <td><button class="button_style" style="background-color:#4e9af1"><%= link_to 'Editar', "bookings/#{b.id}/edit"%></button></td>
+        <td><button class="button_style" style="background-color:#f14e4e"><%= link_to 'Eliminar', "bookings/#{b.id}", method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<br />
+<button><a href='/bookings/new'> Crear nueva reserva de Libro</a></button>
+<br />
+<br />
+<button><%= link_to 'Libros', books_path %></button>
+<% if current_user && current_user.role == "Admin" %>
+<br />
+<br />
+<button><%= link_to 'Usuarios', users_path %></button>
+<% end %>
+<br />

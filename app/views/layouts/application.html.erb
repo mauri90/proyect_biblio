@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProyectBiblio</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style='text-align: center'>
+    <h1>Proyect Biblio ISFDYT N° 210</h1>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  <br>
+  
+    <% if current_user %>
+      <button><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></button>
+    <%end%>
+  </body>
+</html>

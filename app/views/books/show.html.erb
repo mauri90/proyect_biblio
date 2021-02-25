@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Isbn:</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Año de publicación:</strong>
+  <%= @book.year_publication.strftime("%d-%b-%Y") %>
+</p>
+
+<p>
+  <strong>Editorial:</strong>
+  <%= @book.editorial %>
+</p>
+
+<% if current_user && current_user.role == "Admin" %>
+<button><%= link_to 'Editar', edit_book_path(@book) %></button>
+<% end %>
+
+<button><%= link_to 'Atrás', books_path %></button>
+<br />

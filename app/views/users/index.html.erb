@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<br />
+<h1> Lista de Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Telefeno</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><button class="button_style" style="background-color:#4ef18f"><%= link_to 'Ver', user %></button></td>
+        <td><button class="button_style" style="background-color:#4e9af1"><%= link_to 'Editar', edit_user_path(user) %></button></td>
+        <td><button class="button_style" style="background-color:#f14e4e"><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+<br />
+<button><%= link_to 'Agregar Nuevo Usuario', new_user_path %></button>
+<br />
+<br />
+<button><%= link_to 'Libros', books_path %></button>
+<br />
+<br />
+<button><%= link_to 'Lista de Libros Reservados', bookings_path %></button>
+<br />
