@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_215450) do
+ActiveRecord::Schema.define(version: 2021_02_03_001024) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "start_date"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_215450) do
     t.string "editorial"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

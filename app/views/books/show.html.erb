@@ -17,17 +17,12 @@
 
 <p>
   <strong>Año de publicación:</strong>
-  <%= @book.year_publication.strftime("%d-%b-%Y") if @book.year_publication%>
+  <%= @book.year_publication.strftime("%d-%b-%Y") %>
 </p>
 
 <p>
   <strong>Editorial:</strong>
   <%= @book.editorial %>
-</p>
-
-<p class="description">
-  <strong>Descripción:</strong>
-  <%= @book.description %>
 </p>
 
 <% if current_user && current_user.role == "Admin" %>
