@@ -17,7 +17,7 @@
 
 <p>
   <strong>Año de publicación:</strong>
-  <%= @book.year_publication.strftime("%d-%b-%Y") %>
+  <%= @book.year_publication&.strftime("%d-%b-%Y") %>
 </p>
 
 <p>

@@ -39,6 +39,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
+
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+      end
+
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "El usuario se actualizó correctamente." }
         format.json { render :show, status: :ok, location: @user }
